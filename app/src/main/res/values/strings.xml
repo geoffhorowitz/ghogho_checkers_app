@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">checkersapp</string>
+    
+    <!-- Google AdMob IDs -->
+    <!-- These are TEST IDs. Replace these with your real AdMob IDs before publishing to the Play Store. -->
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+</resources>
