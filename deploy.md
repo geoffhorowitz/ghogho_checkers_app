@@ -22,13 +22,23 @@ Welcome to the initial release of Ghogho Checkers!
 ```
 
 ## Build and Deployment Steps
-1. **Generate Signed Bundle**:
+1. **Configure AdMob IDs**:
+   - Before building the release APK/Bundle, replace the default AdMob TEST IDs with your real AdMob IDs.
+   - Open or create `local.properties` in the project root directory.
+   - Add/update the following lines with your production IDs:
+     ```properties
+     ADMOB_APP_ID=ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx
+     ADMOB_BANNER_ID=ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx
+     ```
+   *(Note: `local.properties` is git-ignored to prevent pushing these IDs to your public repository).*
+
+2. **Generate Signed Bundle**:
    - In Android Studio, go to `Build > Generate Signed Bundle / APK...`
    - Select `Android App Bundle`.
    - Provide the keystore path and credentials (ensure you back up your keystore file securely).
    - Select the `release` build variant and click `Finish`.
 
-2. **Upload to Play Console**:
+3. **Upload to Play Console**:
    - Navigate to the [Google Play Console](https://play.google.com/console).
    - Select "Ghogho Checkers".
    - Go to `Release > Production` (or Internal Testing/Closed Testing if preferred).

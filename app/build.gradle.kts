@@ -17,6 +17,19 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Load properties
+        val localProperties = java.util.Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localProperties.load(java.io.FileInputStream(localPropertiesFile))
+        }
+        
+        // Inject as string resources
+        val admobAppId = localProperties.getProperty("ADMOB_APP_ID") //?: "ca-app-pub-3940256099942544~3347511713"
+        val admobBannerId = localProperties.getProperty("ADMOB_BANNER_ID") //?: "ca-app-pub-3940256099942544/6300978111"
+        resValue("string", "admob_app_id", "\"$admobAppId\"")
+        resValue("string", "admob_banner_id", "\"$admobBannerId\"")
     }
 
     buildTypes {
