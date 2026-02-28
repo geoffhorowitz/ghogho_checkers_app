@@ -34,12 +34,12 @@ class GameEngine {
 
         val directions = mutableListOf<Pair<Int, Int>>()
         
-        if (piece.isKing || piece.color == PlayerColor.BLACK) {
+        if (piece.isKing || piece.color == PlayerColor.RED) {
             directions.add(Pair(1, -1)) // Down Left
             directions.add(Pair(1, 1))  // Down Right
         }
         
-        if (piece.isKing || piece.color == PlayerColor.RED) {
+        if (piece.isKing || piece.color == PlayerColor.BLACK) {
             directions.add(Pair(-1, -1)) // Up Left
             directions.add(Pair(-1, 1))  // Up Right
         }

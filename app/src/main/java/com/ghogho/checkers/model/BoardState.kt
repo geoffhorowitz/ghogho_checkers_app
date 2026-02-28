@@ -32,8 +32,8 @@ class BoardState(val squares: Array<Array<Square>>) {
                     val isBlackSquare = (row + col) % 2 != 0
                     val piece = when {
                         !isBlackSquare -> null
-                        row < 3 -> Piece(PlayerColor.BLACK)
-                        row > 4 -> Piece(PlayerColor.RED)
+                        row < 3 -> Piece(PlayerColor.RED)
+                        row > 4 -> Piece(PlayerColor.BLACK)
                         else -> null
                     }
                     Square(row, col, piece)
@@ -67,9 +67,9 @@ class BoardState(val squares: Array<Array<Square>>) {
         // Calculate if it becomes a king
         var isKing = movingPiece?.isKing ?: false
         if (!isKing && movingPiece != null) {
-            if (movingPiece.color == PlayerColor.RED && move.to.row == 0) {
+            if (movingPiece.color == PlayerColor.RED && move.to.row == SIZE - 1) {
                 isKing = true
-            } else if (movingPiece.color == PlayerColor.BLACK && move.to.row == SIZE - 1) {
+            } else if (movingPiece.color == PlayerColor.BLACK && move.to.row == 0) {
                 isKing = true
             }
         }
